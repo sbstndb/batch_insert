@@ -24,7 +24,7 @@ This project implements two different strategies for inserting a batch of values
 - Duplicate handling
 - Preserves sorted order
 - Comparative benchmarks
-- Comprehensive unit tests
+- Unit tests
 
 ## Prerequisites
 
@@ -75,7 +75,7 @@ Benchmarks compare the performance of both implementations for different vector 
 
 ## Tests
 
-The project includes unit tests covering various scenarios:
+The project includes unit tests covering:
 - Empty vector
 - Insertions with duplicates
 - Insertions without new values
@@ -83,12 +83,4 @@ The project includes unit tests covering various scenarios:
 
 ## Contributing
 
-Contributions are welcome! Please submit a pull request.
-
-## License
-
-[Specify your license]
-
-## Author
-
-[Your Name] 
+Contributions are welcome! Please submit a pull request. 
