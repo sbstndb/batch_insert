@@ -1,0 +1,5 @@
+if(EXISTS "/home/sbstndbs/sbstndbs/batch_insert/build2/batch_insert_test[1]_tests.cmake")
+  include("/home/sbstndbs/sbstndbs/batch_insert/build2/batch_insert_test[1]_tests.cmake")
+else()
+  add_test(batch_insert_test_NOT_BUILT batch_insert_test_NOT_BUILT)
+endif()
