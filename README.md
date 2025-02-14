@@ -64,14 +64,14 @@ Benchmarks compare the performance of both implementations for different vector 
 
 ### Detailed Results (Time in microseconds)
 
-| Vector Size / Batch Size | Naive Insertion | Optimized Insertion |
-|-------------------------|-----------------|---------------------|
-| 100 / 10 elements | 3.38 µs | N/A |
-| 1,000 / 100 elements | 34.2 µs | N/A |
-| 10,000 / 1,000 elements | 786 µs | N/A |
-| 100,000 / 10,000 elements | 101,856 µs | N/A |
+| Vector Size | Naive Insertion | Optimized Insertion |
+|------------|-----------------|---------------------|
+| 100 elements | 3.46 µs | 3.97 µs |
+| 1,000 elements | 34.2 µs | 32.5 µs |
+| 10,000 elements | 784 µs | 366 µs |
+| 100,000 elements | 100,267 µs | 4,377 µs |
 
-**Note:** Optimized version benchmarks are pending implementation. Results obtained on a system with 22 CPU cores at 4700 MHz.
+**Note:** Optimized version benchmarks are now included.
 
 ## Tests
 
