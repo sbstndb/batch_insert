@@ -1,1 +1,0 @@
-/usr/bin/c++ CMakeFiles/batch_insert_benchmark.dir/benchmarks/batch_insert_benchmark.cpp.o -o batch_insert_benchmark  libbatch_insert_lib.a /usr/lib/x86_64-linux-gnu/libbenchmark.so.1.8.3

@@ -1,2 +1,0 @@
-/usr/bin/ar qc libbatch_insert_lib.a CMakeFiles/batch_insert_lib.dir/src/batch_insert.cpp.o
-/usr/bin/ranlib libbatch_insert_lib.a

@@ -1,6 +1,0 @@
-/home/sbstndbs/sbstndbs/batch_insert/build/CMakeFiles/batch_insert_lib.dir
-/home/sbstndbs/sbstndbs/batch_insert/build/CMakeFiles/batch_insert_test.dir
-/home/sbstndbs/sbstndbs/batch_insert/build/CMakeFiles/batch_insert_benchmark.dir
-/home/sbstndbs/sbstndbs/batch_insert/build/CMakeFiles/test.dir
-/home/sbstndbs/sbstndbs/batch_insert/build/CMakeFiles/edit_cache.dir
-/home/sbstndbs/sbstndbs/batch_insert/build/CMakeFiles/rebuild_cache.dir
