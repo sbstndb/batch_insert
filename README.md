@@ -62,13 +62,16 @@ batch_insert::optimized_batch_insert(vec, values);
 
 Benchmarks compare the performance of both implementations for different vector sizes.
 
-### Typical Results
+### Detailed Results (Time in microseconds)
 
-| Vector Size | Naive | Optimized |
-|------------|-------|-----------|
-| 100 elements | 10 µs | 12 µs     |
-| 1000 elements| 28 µs | 40 µs     |
-| 10000 elements| 240 µs| 355 µs    |
+| Vector Size | Naive Insertion | Optimized Insertion |
+|------------|-----------------|---------------------|
+| 100 elements | 3.39 µs | N/A |
+| 1,000 elements | 34.0 µs | N/A |
+| 10,000 elements | 786 µs | N/A |
+| 100,000 elements | 100,324 µs | N/A |
+
+**Note:** Optimized version benchmarks are pending implementation.
 
 ## Tests
 
