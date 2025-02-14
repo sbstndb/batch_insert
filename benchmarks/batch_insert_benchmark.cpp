@@ -71,43 +71,32 @@ static void BM_OptimizedBatchInsert(benchmark::State& state) {
     }
 }
 
-static void BM_NaiveBatchInsert_negative(benchmark::State& state) {
+static void BM_OptimizedBatchInsertByValue(benchmark::State& state) {
     const size_t vec_size = state.range(0);
     const size_t values_size = state.range(1);
-
+    
     for (auto _ : state) {
         state.PauseTiming();
         auto vec = generate_sorted_vector(vec_size);
-        auto values = generate_negative_random_values(values_size, vec_size * 2);
+        auto values = generate_random_values(values_size, vec_size * 2);
         state.ResumeTiming();
-
-        batch_insert::naive_batch_insert(vec, values);
+        
+        batch_insert::optimized_batch_insert2(vec, std::move(values));
     }
 }
-
-static void BM_OptimizedBatchInsert_negative(benchmark::State& state) {
-    const size_t vec_size = state.range(0);
-    const size_t values_size = state.range(1);
-
-    for (auto _ : state) {
-        state.PauseTiming();
-        auto vec = generate_sorted_vector(vec_size);
-        auto values = generate_negative_random_values(values_size, vec_size * 2);
-        state.ResumeTiming();
-
-        batch_insert::optimized_batch_insert(vec, values);
-    }
-}
-
-
-
 
 // Test avec différentes tailles de vecteurs et de valeurs à insérer
 BENCHMARK(BM_NaiveBatchInsert)
     ->Args({100, 10})    // Petit vecteur, peu d'insertions
     ->Args({1000, 100})  // Moyen vecteur, insertions moyennes
     ->Args({10000, 1000}) // Grand vecteur, beaucoup d'insertions
-    ->Args({100000, 10000}) // Grand vecteur, beaucoup d'insertions
+    ->Args({100000, 10000})			  // 
+    ->Args({100000, 1})    // Petit vecteur, peu d'insertions   
+    ->Args({100000, 10})    // Petit vecteur, peu d'insertions
+    ->Args({100000, 100})  // Moyen vecteur, insertions moyennes
+    ->Args({100000, 1000}) // Grand vecteur, beaucoup d'insertions
+    ->Args({100000, 10000})                       // 
+    ->Args({100000, 100000})    // Petit vecteur, peu d'insertions						  // 
     ->Unit(benchmark::kMicrosecond);
 
 BENCHMARK(BM_OptimizedBatchInsert)
@@ -115,22 +104,44 @@ BENCHMARK(BM_OptimizedBatchInsert)
     ->Args({1000, 100})
     ->Args({10000, 1000})
     ->Args({100000, 10000})
+    ->Args({1000000, 100000})	
+    ->Args({10000000, 1000000})	
+    ->Args({100000, 1})    // Petit vecteur, peu d'insertions   
+    ->Args({100000, 10})    // Petit vecteur, peu d'insertions
+    ->Args({100000, 100})  // Moyen vecteur, insertions moyennes
+    ->Args({100000, 1000}) // Grand vecteur, beaucoup d'insertions
+    ->Args({100000, 10000})                       // 
+    ->Args({100000, 100000})    // Petit vecteur, peu d'insertions	
     ->Unit(benchmark::kMicrosecond);
 
-// Test avec différentes tailles de vecteurs et de valeurs à insérer
-BENCHMARK(BM_NaiveBatchInsert_negative)
-    ->Args({100, 10})    // Petit vecteur, peu d'insertions
-    ->Args({1000, 100})  // Moyen vecteur, insertions moyennes
-    ->Args({10000, 1000}) // Grand vecteur, beaucoup d'insertions
-    ->Args({100000, 10000}) // Grand vecteur, beaucoup d'insertions
-    ->Unit(benchmark::kMicrosecond);
-
-BENCHMARK(BM_OptimizedBatchInsert_negative)
+BENCHMARK(BM_OptimizedBatchInsertByValue)
     ->Args({100, 10})
     ->Args({1000, 100})
     ->Args({10000, 1000})
-    ->Args({100000, 10000})
+    ->Args({100000, 10000})	
+    ->Args({1000000, 100000})
+    ->Args({100000, 1})    // Petit vecteur, peu d'insertions   
+    ->Args({100000, 10})    // Petit vecteur, peu d'insertions
+    ->Args({100000, 100})  // Moyen vecteur, insertions moyennes
+    ->Args({100000, 1000}) // Grand vecteur, beaucoup d'insertions
+    ->Args({100000, 10000})                       // 
+    ->Args({100000, 100000})    // Petit vecteur, peu d'insertions	
     ->Unit(benchmark::kMicrosecond);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 BENCHMARK_MAIN(); 
